@@ -6,11 +6,12 @@ import styled from "@emotion/styled";
 import uniqid from "uniqid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-
+import DatePicker from "react-datepicker";
 import BusinessHoursInput from "./business-hours-input";
 import ToggleSwitch from "./toggle-switch";
 import helpers from "../utils/helpers";
 import vlds from "../utils/validations";
+
 
 const FlexRow = styled.div`
   display: flex;
@@ -69,6 +70,7 @@ class BusinessHoursDay extends React.Component {
     this.state = {
       hours: props.hours,
       validations: vlds.runValidations(props.hours),
+      startDate: new Date(props.day)
     };
     // this.handleChange = this.handleChange.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
@@ -300,7 +302,13 @@ class BusinessHoursDay extends React.Component {
                 `}
                 role='cell'
               >
-                {this.showDay(index) && <div>{localization.days[day]}</div>}
+                {this.showDay(index) && (
+                  this.props.datePick
+                  ? 
+                  <DatePicker selected={this.state.startDate} onChange={(date) => this.setState({startDate: date})}/>
+                  :
+                  <div>{localization.days[day]}</div>
+                )}
               </div>
               <div
                 css={css`
@@ -435,6 +443,7 @@ class BusinessHoursDay extends React.Component {
 }
 
 BusinessHoursDay.propTypes = {
+  datePick: PropTypes.bool.isRequired,
   day: PropTypes.string.isRequired,
   hours: PropTypes.array.isRequired,
   name: PropTypes.string.isRequired,

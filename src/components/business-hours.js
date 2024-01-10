@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import BusinessHoursDay from "./business-hours-day";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Container = styled.div`
   display: block;
@@ -16,6 +17,7 @@ const BusinessHours = props => {
     <Container>
       {Object.entries(props.days).map(([day, hours]) => (
         <BusinessHoursDay
+          datePick={props.datePick ?? false}
           key={day}
           day={day}
           hours={hours}
@@ -34,6 +36,7 @@ const BusinessHours = props => {
 };
 
 BusinessHours.propTypes = {
+  datePick: PropTypes.bool,
   days: PropTypes.object.isRequired,
   name: PropTypes.string,
   timeIncrement: PropTypes.oneOf([15, 30, 60]),
@@ -46,6 +49,7 @@ BusinessHours.propTypes = {
 };
 
 BusinessHours.defaultProps = {
+  datePick: false,
   name: "businessHours",
   timeIncrement: 30,
   type: "datalist",
