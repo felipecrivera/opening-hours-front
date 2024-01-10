@@ -27,30 +27,33 @@ function App() {
   const [shopName, setShopName] = useState("")
   const updateDays = (dayInd, val) => {
     days[dayInd] = val
+    console.log(days)
   }
 
   return (
     <div className='App'>
       <DemoContainer>
-        <h1>Special opening Hours</h1>
-        <label htmlFor="shop-name">Shop Name:</label> <input id="shop-name" value={shopName} onChange={(d) => setShopName(d.val)} placeholder="Enter Shop Name" />
+        <h1>Modulo per l'aggiornamento degli orari</h1>
+        <label htmlFor="shop-name">CDC NEO:</label> <input id="shop-name" value={shopName} onChange={(d) => setShopName(d.val)} placeholder="Inserisci il tuo codice farmacia" />
         <DemoComponent>
-          <h2>Business Hours</h2>
-          <BusinessHours updateDays={(v) => updateDays('business', v)} days={days.business} time-increment={15} hour-format24={true}></BusinessHours>
+          <h2>Orari ordinari</h2>
+          <p>Inserisci gli orari ordinari della farmacia, gli orari saranno considerati validi dal momento del caricamento.</p>
+          <BusinessHours updateDays={(v) => updateDays('business', v)} days={days.business} time-increment={15} hourFormat24={true}></BusinessHours>
         </DemoComponent>
         <DemoComponent>
-          <h2>Holiday Hours</h2>
+          <h2>Aperture e chiusure straordinarie</h2>
+          <p>Inserire di seguito tutte le aperture o gli orari straordinari della farmacia. Gli orari fanno riferimento a giorni feriali, turni o cambi di orario straordinario. Selezionare il giorno e indicare gli orari di apertura o la chiusura</p>
           <BusinessHours
             updateDays={(v) => updateDays('special', v)}
             datePick={true}
             days={days.special}
             name='holidayHours'
             color='#00af0b'
+            hourFormat24={true}
             time-increment={60}
-            hour-format24={true}
           ></BusinessHours>
         </DemoComponent>
-        <button onClick={downloadCSV}>Down</button>
+        <button>Invia i nuovi orari</button>
       </DemoContainer>
     </div>
   );

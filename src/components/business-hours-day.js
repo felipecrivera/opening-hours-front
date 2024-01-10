@@ -67,10 +67,14 @@ const ErrorsListItem = styled.li`
 class BusinessHoursDay extends React.Component {
   constructor(props) {
     super(props);
+    if (props.datePick) {
+      console.log(props.day)
+      console.log(moment(props.day, 'DD-MM-YYYY').format("MM"))
+    }
     this.state = {
       hours: props.hours,
       validations: vlds.runValidations(props.hours),
-      startDate: new Date(props.day)
+      startDate: moment(props.day, 'DD-MM-YYYY').toDate()
     };
     // this.handleChange = this.handleChange.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
@@ -282,7 +286,7 @@ class BusinessHoursDay extends React.Component {
   }
 
   updateHours(d=null) {
-    const updatedHours = { "day": moment(d ?? this.state.startDate).format("YYYY-MM-DD"), hours: this.state.hours };
+    const updatedHours = { "day": moment(d ?? this.state.startDate).format("DD-MM-YYYY"), hours: this.state.hours };
     this.props.hoursChange(this.props.uID, updatedHours);
   }
 
@@ -311,9 +315,9 @@ class BusinessHoursDay extends React.Component {
                 {this.showDay(index) && (
                   this.props.datePick
                   ? 
-                  <DatePicker dateFormat="yyyy-MM-dd" selected={this.state.startDate} onChange={(date) => this.setStartDate(date)}/>
+                  <DatePicker dateFormat="dd-MM-yyyy" selected={this.state.startDate} onChange={(date) => this.setStartDate(date)}/>
                   :
-                  <div>{localization.days[day]}</div>
+                  <div>{day}</div>
                 )}
               </div>
               <div

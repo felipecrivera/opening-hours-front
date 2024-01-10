@@ -27,7 +27,7 @@ const BusinessHours = props => {
     const d = Object.assign({}, daysObj)
 
     d[newId] = {
-      "day": moment().format("YYYY-MM-DD"),
+      "day": moment().format("dd-mm-yyyy"),
       "hours": [
         {
           "open": "1000",
@@ -62,7 +62,7 @@ const BusinessHours = props => {
       ))}
       {
         props.datePick &&
-        <button onClick={addDay}>Add Day</button>
+        <button onClick={addDay}>Aggiungi un giorno</button>
       }
     </Container>
   );
@@ -90,11 +90,11 @@ BusinessHours.defaultProps = {
   switchWidth: 90,
   hourFormat24: false,
   localization: {
-    switchOpen: "Open",
-    switchClosed: "Closed",
-    placeholderOpens: "Opens",
-    placeholderCloses: "Closes",
-    addHours: "Add hours",
+    switchOpen: "Aperto",
+    switchClosed: "Chiuso",
+    placeholderOpens: "Aperto",
+    placeholderCloses: "Chiuso",
+    addHours: "Aggiungi orario",
     open: {
       invalidInput:
         'Please enter an opening time in the 12 hour format (ie. 08:00 AM). You may also enter "24 hours".',
@@ -115,8 +115,8 @@ BusinessHours.defaultProps = {
       midnightNotLast:
         "Midnight can only be selected for the day's last closing time."
     },
-    t24hours: "24 hours",
-    midnight: "Midnight",
+    t24hours: "24 ore",
+    midnight: "Mezzanotte",
     days: {
       monday: "Monday",
       tuesday: "Tuesday",

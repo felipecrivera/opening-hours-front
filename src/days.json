@@ -1,7 +1,7 @@
 {
   "business": {
     "1n5pxq24kpiob12og9": {
-      "day": "sunday",
+      "day": "Lunedì",
       "hours": [
         {
           "open": "",
@@ -12,7 +12,7 @@
       ]
     },
     "2n5pxq24kriob12ogd": {
-      "day": "monday",
+      "day": "Martedì",
       "hours": [
         {
           "open": "0800",
@@ -23,7 +23,7 @@
       ]
     },
     "3n5pxq24ksiob12ogl": {
-      "day": "tuesday",
+      "day": "Mercoledì",
       "hours": [
         {
           "open": "0800",
@@ -34,7 +34,7 @@
       ]
     },
     "4t5pxq24kpiob12oh9": {
-      "day": "wednesday",
+      "day": "Giovedì",
       "hours": [
         {
           "open": "0800",
@@ -45,7 +45,7 @@
       ]
     },
     "5t5pxq24kpiob12oh9": {
-      "day": "thursday",
+      "day": "Venerdì",
       "hours": [
         {
           "open": "0800",
@@ -56,7 +56,7 @@
       ]
     },
     "6p5pxq24kpiob12oh9": {
-      "day": "friday",
+      "day": "Sabato",
       "hours": [
         {
           "open": "0800",
@@ -73,7 +73,7 @@
       ]
     },
     "7b5pxq24kpiob12oh9": {
-      "day": "saturday",
+      "day": "Domenica",
       "hours": [
         {
           "open": "24hrs",
@@ -86,7 +86,7 @@
   },
   "special": {
     "4n5pxq24kpioc12og9": {
-      "day": "2024-01-02",
+      "day": "02-01-2024",
       "hours": [
         {
           "open": "1700",
