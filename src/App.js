@@ -38,12 +38,13 @@ function App() {
         <DemoComponent>
           <h2>Orari ordinari</h2>
           <p>Inserisci gli orari ordinari della farmacia, gli orari saranno considerati validi dal momento del caricamento.</p>
-          <BusinessHours updateDays={(v) => updateDays('business', v)} days={days.business} time-increment={15} hourFormat24={true}></BusinessHours>
+          <BusinessHours timeIncrement={15} updateDays={(v) => updateDays('business', v)} days={days.business} time-increment={15} hourFormat24={true}></BusinessHours>
         </DemoComponent>
         <DemoComponent>
           <h2>Aperture e chiusure straordinarie</h2>
           <p>Inserire di seguito tutte le aperture o gli orari straordinari della farmacia. Gli orari fanno riferimento a giorni feriali, turni o cambi di orario straordinario. Selezionare il giorno e indicare gli orari di apertura o la chiusura</p>
           <BusinessHours
+            timeIncrement={15}
             updateDays={(v) => updateDays('special', v)}
             datePick={true}
             days={days.special}
