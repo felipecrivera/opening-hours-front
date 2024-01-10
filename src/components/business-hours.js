@@ -1,4 +1,6 @@
 import PropTypes from "prop-types";
+import moment from "moment";
+import uniqid from "uniqid";
 import styled from "@emotion/styled";
 import BusinessHoursDay from "./business-hours-day";
 import "react-datepicker/dist/react-datepicker.css";
@@ -14,20 +16,38 @@ const Container = styled.div`
 
 const BusinessHours = props => {
   const [daysObj, setDaysObj] = useState(props.days);
-  console.log(daysObj)
+
   const updateDays = (dateInd, val) => {
     daysObj[dateInd] = val
     setDaysObj(daysObj)
     props.updateDays(daysObj)
   }
+  const addDay = () => {
+    const newId = uniqid()
+    const d = Object.assign({}, daysObj)
+
+    d[newId] = {
+      "day": moment().format("YYYY-MM-DD"),
+      "hours": [
+        {
+          "open": "1000",
+          "close": "1900",
+          "id": uniqid(),
+          "isOpen": true
+        }
+      ]
+    }
+    setDaysObj(d)
+    props.updateDays(daysObj)
+  }
 
   return (
     <Container>
-      {Object.entries(props.days).map(([dayID,{day, hours}]) => (
+      {Object.entries(daysObj).map(([dayID, { day, hours }]) => (
         <BusinessHoursDay
           uID={dayID}
           datePick={props.datePick ?? false}
-          key={day}
+          key={dayID}
           day={day}
           hours={hours}
           name={props.name}
@@ -40,6 +60,10 @@ const BusinessHours = props => {
           hoursChange={updateDays}
         />
       ))}
+      {
+        props.datePick &&
+        <button onClick={addDay}>Add Day</button>
+      }
     </Container>
   );
 };
