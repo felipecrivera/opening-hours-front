@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import BusinessHours from "./components/business-hours";
 import days from "./days.json";
@@ -24,15 +24,16 @@ const DemoComponentWide = styled.div`
 `;
 
 function App() {
+  const [shopName, setShopName] = useState("")
   const updateDays = (dayInd, val) => {
     days[dayInd] = val
-    console.log(days)
   }
 
   return (
     <div className='App'>
       <DemoContainer>
         <h1>Special opening Hours</h1>
+        <label htmlFor="shop-name">Shop Name:</label> <input id="shop-name" value={shopName} onChange={(d) => setShopName(d.val)} placeholder="Enter Shop Name" />
         <DemoComponent>
           <h2>Business Hours</h2>
           <BusinessHours updateDays={(v) => updateDays('business', v)} days={days.business} time-increment={15} hour-format24={true}></BusinessHours>
@@ -49,6 +50,7 @@ function App() {
             hour-format24={true}
           ></BusinessHours>
         </DemoComponent>
+        <button onClick={downloadCSV}>Down</button>
       </DemoContainer>
     </div>
   );

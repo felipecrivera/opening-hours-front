@@ -11,7 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.react-datepicker-wrapper input {
+.react-datepicker-wrapper input,
+#shop-name {
   margin:1px;
   padding:3px 5px;
   width:110px;
@@ -21,4 +22,7 @@ code {
   vertical-align:middle;
   border:1px solid #d5d5d5;
   box-sizing:border-box;
+}
+#shop-name {
+  width: 200px;
 }
