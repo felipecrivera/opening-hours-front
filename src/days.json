@@ -1,0 +1,100 @@
+{
+  "business": {
+    "1n5pxq24kpiob12og9": {
+      "day": "sunday",
+      "hours": [
+        {
+          "open": "",
+          "close": "",
+          "id": "5ca5578b0c5c7",
+          "isOpen": false
+        }
+      ]
+    },
+    "2n5pxq24kriob12ogd": {
+      "day": "monday",
+      "hours": [
+        {
+          "open": "0800",
+          "close": "1700",
+          "id": "5ca5578b0c5d1",
+          "isOpen": true
+        }
+      ]
+    },
+    "3n5pxq24ksiob12ogl": {
+      "day": "tuesday",
+      "hours": [
+        {
+          "open": "0800",
+          "close": "1700",
+          "id": "5ca5578b0c5d8",
+          "isOpen": true
+        }
+      ]
+    },
+    "4t5pxq24kpiob12oh9": {
+      "day": "wednesday",
+      "hours": [
+        {
+          "open": "0800",
+          "close": "1700",
+          "id": "5ca5578b0c5df",
+          "isOpen": true
+        }
+      ]
+    },
+    "5t5pxq24kpiob12oh9": {
+      "day": "thursday",
+      "hours": [
+        {
+          "open": "0800",
+          "close": "1700",
+          "id": "5ca5578b0c5e6",
+          "isOpen": true
+        }
+      ]
+    },
+    "6p5pxq24kpiob12oh9": {
+      "day": "friday",
+      "hours": [
+        {
+          "open": "0800",
+          "close": "1700",
+          "id": "5ca5578b0c5ec",
+          "isOpen": true
+        },
+        {
+          "open": "1900",
+          "close": "2200",
+          "id": "5ca5578b0c5f2",
+          "isOpen": true
+        }
+      ]
+    },
+    "7b5pxq24kpiob12oh9": {
+      "day": "saturday",
+      "hours": [
+        {
+          "open": "24hrs",
+          "close": "24hrs",
+          "id": "5ca5578b0c5f8",
+          "isOpen": true
+        }
+      ]
+    }
+  },
+  "special": {
+    "4n5pxq24kpioc12og9": {
+      "day": "2024-01-02",
+      "hours": [
+        {
+          "open": "1700",
+          "close": "2400",
+          "id": "5ca578bwe5d8",
+          "isOpen": true
+        }
+      ]
+    }
+  }
+}

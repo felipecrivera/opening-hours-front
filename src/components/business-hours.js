@@ -1,8 +1,8 @@
-import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import BusinessHoursDay from "./business-hours-day";
 import "react-datepicker/dist/react-datepicker.css";
+import React, { useState } from 'react';
 
 const Container = styled.div`
   display: block;
@@ -13,10 +13,19 @@ const Container = styled.div`
 `;
 
 const BusinessHours = props => {
+  const [daysObj, setDaysObj] = useState(props.days);
+  console.log(daysObj)
+  const updateDays = (dateInd, val) => {
+    daysObj[dateInd] = val
+    setDaysObj(daysObj)
+    props.updateDays(daysObj)
+  }
+
   return (
     <Container>
-      {Object.entries(props.days).map(([day, hours]) => (
+      {Object.entries(props.days).map(([dayID,{day, hours}]) => (
         <BusinessHoursDay
+          uID={dayID}
           datePick={props.datePick ?? false}
           key={day}
           day={day}
@@ -28,7 +37,7 @@ const BusinessHours = props => {
           switchWidth={props.switchWidth}
           hourFormat24={props.hourFormat24}
           localization={props.localization}
-          hoursChange={val => props.updatedValues(val)}
+          hoursChange={updateDays}
         />
       ))}
     </Container>

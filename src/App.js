@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import BusinessHours from "./components/business-hours";
-import demoDays from "./data/demoDays.json";
+import days from "./days.json";
 import demoDaysErrors from "./data/demoDaysErrors.json";
 import demoHolidays from "./data/demoHolidays.json";
 import demoDaysSpanish from "./data/demoDaysSpanish.json";
@@ -24,27 +24,29 @@ const DemoComponentWide = styled.div`
 `;
 
 function App() {
-  const printLogs = (val) => {
-    console.log(val)
+  const updateDays = (dayInd, val) => {
+    days[dayInd] = val
+    console.log(days)
   }
+
   return (
     <div className='App'>
       <DemoContainer>
         <h1>Special opening Hours</h1>
         <DemoComponent>
           <h2>Business Hours</h2>
-          <BusinessHours days={demoDays} time-increment={15} hour-format24={true}></BusinessHours>
+          <BusinessHours updateDays={(v) => updateDays('business', v)} days={days.business} time-increment={15} hour-format24={true}></BusinessHours>
         </DemoComponent>
         <DemoComponent>
           <h2>Holiday Hours</h2>
           <BusinessHours
+            updateDays={(v) => updateDays('special', v)}
             datePick={true}
-            days={demoHolidays}
+            days={days.special}
             name='holidayHours'
             color='#00af0b'
             time-increment={60}
             hour-format24={true}
-            updatedValues={printLogs}
           ></BusinessHours>
         </DemoComponent>
       </DemoContainer>

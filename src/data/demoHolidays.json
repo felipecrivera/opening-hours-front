@@ -1,10 +1,13 @@
 {
-  "2024-01-02": [
-    {
-      "open": "1700",
-      "close": "2400",
-      "id": "5ca578bwe5d8",
-      "isOpen": true
-    }
-  ]
+  "4n5pxq24kpioc12og9": {
+    "day": "2024-01-02",
+    "hours": [
+      {
+        "open": "1700",
+        "close": "2400",
+        "id": "5ca578bwe5d8",
+        "isOpen": true
+      }
+    ]
+  }
 }

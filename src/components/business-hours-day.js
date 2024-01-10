@@ -11,7 +11,7 @@ import BusinessHoursInput from "./business-hours-input";
 import ToggleSwitch from "./toggle-switch";
 import helpers from "../utils/helpers";
 import vlds from "../utils/validations";
-
+import moment from "moment";
 
 const FlexRow = styled.div`
   display: flex;
@@ -83,6 +83,12 @@ class BusinessHoursDay extends React.Component {
     // vlds.runValidations(this.state.hours);
   }
 
+  setStartDate(v) {
+    this.setState({
+      startDate: v
+    })
+    this.updateHours(v)
+  }
   setHours(hours) {
     this.setState({
       hours: hours,
@@ -275,9 +281,9 @@ class BusinessHoursDay extends React.Component {
     );
   }
 
-  updateHours() {
-    const updatedHours = { [this.props.day]: this.state.hours };
-    this.props.hoursChange(updatedHours);
+  updateHours(d=null) {
+    const updatedHours = { "day": moment(d ?? this.state.startDate).format("YYYY-MM-DD"), hours: this.state.hours };
+    this.props.hoursChange(this.props.uID, updatedHours);
   }
 
   render() {
@@ -305,7 +311,7 @@ class BusinessHoursDay extends React.Component {
                 {this.showDay(index) && (
                   this.props.datePick
                   ? 
-                  <DatePicker selected={this.state.startDate} onChange={(date) => this.setState({startDate: date})}/>
+                  <DatePicker dateFormat="yyyy-MM-dd" selected={this.state.startDate} onChange={(date) => this.setStartDate(date)}/>
                   :
                   <div>{localization.days[day]}</div>
                 )}
@@ -443,6 +449,7 @@ class BusinessHoursDay extends React.Component {
 }
 
 BusinessHoursDay.propTypes = {
+  uID: PropTypes.string.isRequired,
   datePick: PropTypes.bool.isRequired,
   day: PropTypes.string.isRequired,
   hours: PropTypes.array.isRequired,
