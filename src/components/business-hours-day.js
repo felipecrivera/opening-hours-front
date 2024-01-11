@@ -67,10 +67,7 @@ const ErrorsListItem = styled.li`
 class BusinessHoursDay extends React.Component {
   constructor(props) {
     super(props);
-    if (props.datePick) {
-      console.log(props.day)
-      console.log(moment(props.day, 'DD-MM-YYYY').format("MM"))
-    }
+
     this.state = {
       hours: props.hours,
       validations: vlds.runValidations(props.hours),
