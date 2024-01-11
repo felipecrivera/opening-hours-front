@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import BusinessHours from "./components/business-hours";
 import days from "./days.json";
-import demoDaysErrors from "./data/demoDaysErrors.json";
-import demoHolidays from "./data/demoHolidays.json";
-import demoDaysSpanish from "./data/demoDaysSpanish.json";
-import demoSpanishLocalization from "./data/demoSpanishLocalization.json";
+import axios from "axios";
 
 const DemoContainer = styled.div`
   margin: 50px auto;
@@ -19,17 +16,38 @@ const DemoComponent = styled.div`
   margin-bottom: 50px;
 `;
 
-const DemoComponentWide = styled.div`
-  width: 800px;
-`;
-
 function App() {
-  const [shopName, setShopName] = useState("")
+  const [shopName, setShopName] = useState("Shop Name")
   const updateDays = (dayInd, val) => {
     days[dayInd] = val
     console.log(days)
   }
 
+  const submitData = () => {
+    let d = [];
+    d.push(shopName);
+    Object.entries(days.business).map(([i, { day, hours }]) => {
+      const tm = hours.map((i) => {
+        return (i['open'] && i['close']) ? i['open'] + ":" + i['close'] : "";
+      });
+      d.push(tm.join(';'));
+    })
+    let specialHours = [];
+    Object.entries(days.special).map(([i, { day, hours }]) => {
+      const tm = hours.map((i) => {
+        return (i['open'] && i['close']) ? i['open'] + ":" + i['close'] : "";
+      });
+      specialHours.push(day + ":" + tm);
+    })
+    d.push(specialHours.join(';'));
+    axios.post('http://localhost:3001', d)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
   return (
     <div className='App'>
       <DemoContainer>
@@ -54,7 +72,7 @@ function App() {
             time-increment={60}
           ></BusinessHours>
         </DemoComponent>
-        <button>Invia i nuovi orari</button>
+        <button onClick={submitData}>Invia i nuovi orari</button>
       </DemoContainer>
     </div>
   );
