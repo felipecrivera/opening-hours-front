@@ -4,10 +4,10 @@
       "day": "Lunedì",
       "hours": [
         {
-          "open": "",
-          "close": "",
+          "open": "0900",
+          "close": "1900",
           "id": "5ca5578b0c5c7",
-          "isOpen": false
+          "isOpen": true
         }
       ]
     },
@@ -15,8 +15,8 @@
       "day": "Martedì",
       "hours": [
         {
-          "open": "0800",
-          "close": "1700",
+          "open": "0900",
+          "close": "1900",
           "id": "5ca5578b0c5d1",
           "isOpen": true
         }
@@ -26,8 +26,8 @@
       "day": "Mercoledì",
       "hours": [
         {
-          "open": "0800",
-          "close": "1700",
+          "open": "0900",
+          "close": "1900",
           "id": "5ca5578b0c5d8",
           "isOpen": true
         }
@@ -37,8 +37,8 @@
       "day": "Giovedì",
       "hours": [
         {
-          "open": "0800",
-          "close": "1700",
+          "open": "0900",
+          "close": "1900",
           "id": "5ca5578b0c5df",
           "isOpen": true
         }
@@ -48,8 +48,8 @@
       "day": "Venerdì",
       "hours": [
         {
-          "open": "0800",
-          "close": "1700",
+          "open": "0900",
+          "close": "1900",
           "id": "5ca5578b0c5e6",
           "isOpen": true
         }
@@ -59,15 +59,9 @@
       "day": "Sabato",
       "hours": [
         {
-          "open": "0800",
-          "close": "1700",
+          "open": "0900",
+          "close": "1900",
           "id": "5ca5578b0c5ec",
-          "isOpen": true
-        },
-        {
-          "open": "1900",
-          "close": "2200",
-          "id": "5ca5578b0c5f2",
           "isOpen": true
         }
       ]
@@ -76,8 +70,8 @@
       "day": "Domenica",
       "hours": [
         {
-          "open": "24hrs",
-          "close": "24hrs",
+          "open": "0900",
+          "close": "1900",
           "id": "5ca5578b0c5f8",
           "isOpen": true
         }
@@ -89,8 +83,8 @@
       "day": "02-01-2024",
       "hours": [
         {
-          "open": "1700",
-          "close": "2400",
+          "open": "0900",
+          "close": "1900",
           "id": "5ca578bwe5d8",
           "isOpen": true
         }

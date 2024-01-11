@@ -43,7 +43,7 @@ function App() {
       specialHours.push(day + ":" + tm);
     })
     d.push(specialHours.join(';'));
-    axios.post('http://localhost:3001', d)
+    axios.post(process.env.REACT_APP_BACKEND_ENDPOINT, d)
       .then(function (response) {
         console.log(response);
       })
