@@ -27,7 +27,7 @@ const BusinessHours = props => {
     const d = Object.assign({}, daysObj)
 
     d[newId] = {
-      "day": moment().format("dd-mm-yyyy"),
+      "day": moment().format("DD-MM-YYYY"),
       "hours": [
         {
           "open": "1000",

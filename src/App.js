@@ -31,18 +31,19 @@ function App() {
     d.push(shopName);
     Object.entries(days.business).map(([i, { day, hours }]) => {
       const tm = hours.map((i) => {
-        return (i['open'] && i['close']) ? i['open'] + ":" + i['close'] : "";
+        return (i['open'] && i['close']) ? i['open'].slice(0, 2) + ":" + i['open'].slice(2) + "-" + i['close'].slice (0, 2) + ":" + i["close"].slice(2) : "";
       });
       d.push(tm.join(';'));
     })
     let specialHours = [];
     Object.entries(days.special).map(([i, { day, hours }]) => {
       const tm = hours.map((i) => {
-        return (i['open'] && i['close']) ? i['open'] + ":" + i['close'] : "";
+        return (i['open'] && i['close']) ? day.slice(6) + "-" + day.slice(3, 5) + "-" + day.slice(0, 2) + ": " + i['open'].slice(0, 2) + ":" + i['open'].slice(2) + "-" + i['close'].slice (0, 2) + ":" + i["close"].slice(2) : "";
       });
-      specialHours.push(day + ":" + tm);
+      console.log(tm)
+      specialHours.push(tm);
     })
-    d.push(specialHours.join(';'));
+    d.push(specialHours.join(', '));
     axios.post(process.env.REACT_APP_BACKEND_ENDPOINT, d)
       .then(function (response) {
         console.log(response);
