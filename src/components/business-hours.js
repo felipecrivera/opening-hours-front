@@ -30,8 +30,8 @@ const BusinessHours = props => {
       "day": moment().format("DD-MM-YYYY"),
       "hours": [
         {
-          "open": "1000",
-          "close": "1900",
+          "open": "",
+          "close": "",
           "id": uniqid(),
           "isOpen": true
         }
