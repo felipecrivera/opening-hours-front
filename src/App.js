@@ -18,11 +18,14 @@ const DemoComponent = styled.div`
 
 function App() {
   const [shopName, setShopName] = useState("Shop Name")
+  const [isSubmitted, setIsSubmitte] = useState(false)
+
   const updateDays = (dayInd, val) => {
     days[dayInd] = val
   }
 
   const submitData = () => {
+    setIsSubmitte(true)
     if (!shopName) {
       alert("You must input shopname!");
       return;
@@ -58,6 +61,7 @@ function App() {
     axios.post(process.env.REACT_APP_BACKEND_ENDPOINT, d)
       .then(function (response) {
         console.log(response);
+        setIsSubmitte(true)
       })
       .catch(function (error) {
         console.log(error);
@@ -67,27 +71,35 @@ function App() {
     <div className='App'>
       <DemoContainer>
         <h1>Modulo per l'aggiornamento degli orari</h1>
-        <label htmlFor="shop-name">CDC NEO:</label> <input id="shop-name" value={shopName} onChange={(d) => setShopName(d.target.value)} placeholder="Codice Farmacia" />
-        <DemoComponent>
-          <h2>Orari ordinari</h2>
-          <p>Inserisci gli orari ordinari della farmacia, gli orari saranno considerati validi dal momento del caricamento.</p>
-          <BusinessHours timeIncrement={15} updateDays={(v) => updateDays('business', v)} days={days.business} time-increment={15} hourFormat24={true}></BusinessHours>
-        </DemoComponent>
-        <DemoComponent>
-          <h2>Aperture e chiusure straordinarie</h2>
-          <p>Inserire di seguito tutte le aperture o gli orari straordinari della farmacia. Gli orari fanno riferimento a giorni feriali, turni o cambi di orario straordinario. Selezionare il giorno e indicare gli orari di apertura o la chiusura</p>
-          <BusinessHours
-            timeIncrement={15}
-            updateDays={(v) => updateDays('special', v)}
-            datePick={true}
-            days={days.special}
-            name='holidayHours'
-            color='#00af0b'
-            hourFormat24={true}
-            time-increment={60}
-          ></BusinessHours>
-        </DemoComponent>
-        <button onClick={submitData}>Invia i nuovi orari</button>
+        {
+          !isSubmitted ?
+            <>
+              <label htmlFor="shop-name">CDC NEO:</label> <input id="shop-name" value={shopName} onChange={(d) => setShopName(d.target.value)} placeholder="Codice Farmacia" />
+              <DemoComponent>
+                <h2>Orari ordinari</h2>
+                <p>Inserisci gli orari ordinari della farmacia, gli orari saranno considerati validi dal momento del caricamento.</p>
+                <BusinessHours timeIncrement={15} updateDays={(v) => updateDays('business', v)} days={days.business} time-increment={15} hourFormat24={true}></BusinessHours>
+              </DemoComponent>
+              <DemoComponent>
+                <h2>Aperture e chiusure straordinarie</h2>
+                <p>Inserire di seguito tutte le aperture o gli orari straordinari della farmacia. Gli orari fanno riferimento a giorni feriali, turni o cambi di orario straordinario. Selezionare il giorno e indicare gli orari di apertura o la chiusura</p>
+                <BusinessHours
+                  timeIncrement={15}
+                  updateDays={(v) => updateDays('special', v)}
+                  datePick={true}
+                  days={days.special}
+                  name='holidayHours'
+                  color='#00af0b'
+                  hourFormat24={true}
+                  time-increment={60}
+                ></BusinessHours>
+              </DemoComponent>
+              <button onClick={submitData}>Invia i nuovi orari</button>
+            </>
+            :
+            <p>Grazie, i nuovi orari sono stati registrati, verranno aggiornati sui nostri sistemi nelle prossime ore.</p>
+        }
+
       </DemoContainer>
     </div>
   );
