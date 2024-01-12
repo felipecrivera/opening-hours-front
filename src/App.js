@@ -17,7 +17,7 @@ const DemoComponent = styled.div`
 `;
 
 function App() {
-  const [shopName, setShopName] = useState("Shop Name")
+  const [shopName, setShopName] = useState("Codice Farmacia")
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const updateDays = (dayInd, val) => {
