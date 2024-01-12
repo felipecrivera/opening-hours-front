@@ -18,14 +18,13 @@ const DemoComponent = styled.div`
 
 function App() {
   const [shopName, setShopName] = useState("Shop Name")
-  const [isSubmitted, setIsSubmitte] = useState(false)
+  const [isSubmitted, setIsSubmittedd] = useState(false)
 
   const updateDays = (dayInd, val) => {
     days[dayInd] = val
   }
 
   const submitData = () => {
-    setIsSubmitte(true)
     if (!shopName) {
       alert("You must input shopname!");
       return;
@@ -47,7 +46,7 @@ function App() {
     let specialHours = [];
 
     Object.entries(days.special).forEach(([i, { day, hours }]) => {
-      const tm = hours.forEach((i) => {
+      hours.forEach((i) => {
         if (i.isOpen) {
           if ((i['open'] && i['close']))
             specialHours.push(day.slice(6) + "-" + day.slice(3, 5) + "-" + day.slice(0, 2) + ": " + i['open'].slice(0, 2) + ":" + i['open'].slice(2) + "-" + i['close'].slice(0, 2) + ":" + i["close"].slice(2));
@@ -61,7 +60,7 @@ function App() {
     axios.post(process.env.REACT_APP_BACKEND_ENDPOINT, d)
       .then(function (response) {
         console.log(response);
-        setIsSubmitte(true)
+        setIsSubmitted(true)
       })
       .catch(function (error) {
         console.log(error);
