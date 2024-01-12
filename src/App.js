@@ -38,8 +38,6 @@ function App() {
           if ((i['open'] && i['close']))
             ts.push(i['open'].slice(0, 2) + ":" + i['open'].slice(2) + "-" + i['close'].slice(0, 2) + ":" + i["close"].slice(2));
         }
-        else
-          ts.push("X")
       });
       d.push(ts.join(', '));
     })
@@ -57,6 +55,8 @@ function App() {
       });
     })
     d.push(specialHours.join(', '));
+    console.log(d)
+    return
     axios.post(process.env.REACT_APP_BACKEND_ENDPOINT, d)
       .then(function (response) {
         console.log(response);
