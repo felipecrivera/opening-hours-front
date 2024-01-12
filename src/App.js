@@ -18,7 +18,7 @@ const DemoComponent = styled.div`
 
 function App() {
   const [shopName, setShopName] = useState("Shop Name")
-  const [isSubmitted, setIsSubmittedd] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const updateDays = (dayInd, val) => {
     days[dayInd] = val
