@@ -97,23 +97,23 @@ BusinessHours.defaultProps = {
     addHours: "Aggiungi orario",
     open: {
       invalidInput:
-        'Please enter an opening time in the 12 hour format (ie. 08:00 AM). You may also enter "24 hours".',
+        'Please enter an opening time in the 24 hour format (ie. 17:00)',
       greaterThanNext:
-        "Please enter an opening time that is before the closing time.",
+        "Inserisca un orario di apertura precedente all'orario di chiusura.",
       lessThanPrevious:
-        "Please enter an opening time that is after the previous closing time.",
+        "Inserisca un orario di apertura successivo all'orario di chiusura precedente.",
       midnightNotLast:
-        "Midnight can only be selected for the day's last closing time."
+        "La mezzanotte può essere selezionata solo per l'ultima ora di chiusura della giornata."
     },
     close: {
       invalidInput:
-        'Please enter a closing time in the 12 hour format (ie. 05:00 PM). You may also enter "24 hours" or "Midnight".',
+        'Inserisca un orario di chiusura nel formato 24 ore (es. 17:00). Puoi anche inserire "24 ore" o "Mezzanotte".',
       greaterThanNext:
-        "Please enter a closing time that is after the opening time.",
+        "Inserisca un orario di chiusura successivo all'orario di aperture.",
       lessThanPrevious:
-        "Please enter a closing time that is before the next opening time.",
+        "Inserisca un orario di chiusura antecedente al prossimo orario di apertura.",
       midnightNotLast:
-        "Midnight can only be selected for the day's last closing time."
+        "La mezzanotte può essere selezionata solo per l'ultima ora di chiusura della giornata."
     },
     t24hours: "24 ore",
     midnight: "Mezzanotte",
