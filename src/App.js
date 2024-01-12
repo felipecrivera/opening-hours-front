@@ -55,8 +55,7 @@ function App() {
       });
     })
     d.push(specialHours.join(', '));
-    console.log(d)
-    return
+
     axios.post(process.env.REACT_APP_BACKEND_ENDPOINT, d)
       .then(function (response) {
         console.log(response);
