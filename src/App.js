@@ -29,28 +29,42 @@ function App() {
     }
     let d = [];
     d.push(shopName);
-    Object.entries(days.business).map(([i, { day, hours }]) => {
-      const tm = hours.map((i) => {
-        return (i['open'] && i['close']) ? i['open'].slice(0, 2) + ":" + i['open'].slice(2) + "-" + i['close'].slice (0, 2) + ":" + i["close"].slice(2) : "";
+    Object.entries(days.business).forEach(([i, { day, hours }]) => {
+      console.log(hours)
+      const ts = []
+      hours.forEach((i) => {
+        if (i.isOpen) {
+          if ((i['open'] && i['close']))
+            ts.push(i['open'].slice(0, 2) + ":" + i['open'].slice(2) + "-" + i['close'].slice(0, 2) + ":" + i["close"].slice(2));
+        }
+        else
+          ts.push("X")
       });
-      d.push(tm.join(';'));
+      d.push(ts.join(', '));
     })
     let specialHours = [];
-    Object.entries(days.special).map(([i, { day, hours }]) => {
-      const tm = hours.map((i) => {
-        return (i['open'] && i['close']) ? day.slice(6) + "-" + day.slice(3, 5) + "-" + day.slice(0, 2) + ": " + i['open'].slice(0, 2) + ":" + i['open'].slice(2) + "-" + i['close'].slice (0, 2) + ":" + i["close"].slice(2) : "";
+
+    Object.entries(days.special).forEach(([i, { day, hours }]) => {
+      const tm = hours.forEach((i) => {
+        if (i.isOpen) {
+          if ((i['open'] && i['close']))
+            specialHours.push(day.slice(6) + "-" + day.slice(3, 5) + "-" + day.slice(0, 2) + ": " + i['open'].slice(0, 2) + ":" + i['open'].slice(2) + "-" + i['close'].slice(0, 2) + ":" + i["close"].slice(2));
+        }
+        else {
+          console.log(day)
+          specialHours.push(day.slice(6) + "-" + day.slice(3, 5) + "-" + day.slice(0, 2) + ": x")
+        }
       });
-      console.log(tm)
-      specialHours.push(tm);
     })
     d.push(specialHours.join(', '));
-    axios.post(process.env.REACT_APP_BACKEND_ENDPOINT, d)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    console.log(d)
+    // axios.post(process.env.REACT_APP_BACKEND_ENDPOINT, d)
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
   }
   return (
     <div className='App'>
