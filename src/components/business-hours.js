@@ -97,7 +97,7 @@ BusinessHours.defaultProps = {
     addHours: "Aggiungi orario",
     open: {
       invalidInput:
-        'Please enter an opening time in the 24 hour format (ie. 17:00)',
+        'Inserisci un orario di apertura nel formato 24 ore (es. 17:00)',
       greaterThanNext:
         "Inserisca un orario di apertura precedente all'orario di chiusura.",
       lessThanPrevious:
