@@ -67,7 +67,7 @@ function App() {
     <div className='App'>
       <DemoContainer>
         <h1>Modulo per l'aggiornamento degli orari</h1>
-        <label htmlFor="shop-name">CDC NEO:</label> <input id="shop-name" value={shopName} onChange={(d) => setShopName(d.target.value)} placeholder="Inserisci il tuo codice farmacia" />
+        <label htmlFor="shop-name">CDC NEO:</label> <input id="shop-name" value={shopName} onChange={(d) => setShopName(d.target.value)} placeholder="Codice Farmacia" />
         <DemoComponent>
           <h2>Orari ordinari</h2>
           <p>Inserisci gli orari ordinari della farmacia, gli orari saranno considerati validi dal momento del caricamento.</p>

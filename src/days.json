@@ -4,10 +4,10 @@
       "day": "Lunedì",
       "hours": [
         {
-          "open": "0900",
-          "close": "1900",
+          "open": "",
+          "close": "",
           "id": "5ca5578b0c5c7",
-          "isOpen": true
+          "isOpen": false
         }
       ]
     },
@@ -15,10 +15,10 @@
       "day": "Martedì",
       "hours": [
         {
-          "open": "0900",
-          "close": "1900",
+          "open": "",
+          "close": "",
           "id": "5ca5578b0c5d1",
-          "isOpen": true
+          "isOpen": false
         }
       ]
     },
@@ -26,10 +26,10 @@
       "day": "Mercoledì",
       "hours": [
         {
-          "open": "0900",
-          "close": "1900",
+          "open": "",
+          "close": "",
           "id": "5ca5578b0c5d8",
-          "isOpen": true
+          "isOpen": false
         }
       ]
     },
@@ -37,10 +37,10 @@
       "day": "Giovedì",
       "hours": [
         {
-          "open": "0900",
-          "close": "1900",
+          "open": "",
+          "close": "",
           "id": "5ca5578b0c5df",
-          "isOpen": true
+          "isOpen": false
         }
       ]
     },
@@ -48,10 +48,10 @@
       "day": "Venerdì",
       "hours": [
         {
-          "open": "0900",
-          "close": "1900",
+          "open": "",
+          "close": "",
           "id": "5ca5578b0c5e6",
-          "isOpen": true
+          "isOpen": false
         }
       ]
     },
@@ -59,10 +59,10 @@
       "day": "Sabato",
       "hours": [
         {
-          "open": "0900",
-          "close": "1900",
+          "open": "",
+          "close": "",
           "id": "5ca5578b0c5ec",
-          "isOpen": true
+          "isOpen": false
         }
       ]
     },
@@ -70,25 +70,14 @@
       "day": "Domenica",
       "hours": [
         {
-          "open": "0900",
-          "close": "1900",
+          "open": "",
+          "close": "",
           "id": "5ca5578b0c5f8",
-          "isOpen": true
+          "isOpen": false
         }
       ]
     }
   },
   "special": {
-    "4n5pxq24kpioc12og9": {
-      "day": "02-01-2024",
-      "hours": [
-        {
-          "open": "0900",
-          "close": "1900",
-          "id": "5ca578bwe5d8",
-          "isOpen": true
-        }
-      ]
-    }
   }
 }
